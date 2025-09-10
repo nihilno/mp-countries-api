@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+@layer inputs {
+  .input {
+    @apply text-xs placeholder:text-xs focus:outline-none focus:ring focus:ring-zinc-500/40 focus-visible:outline-none focus-visible:ring focus-visible:ring-zinc-500/40 transition duration-300 h-12 md:h-15 md:text-base md:placeholder:text-base;
+  }
+
+  .border {
+    @apply rounded-sm border border-zinc-300/60;
+  }
+
+  .hover {
+    @apply transition duration-500 ease-in-out shadow-sm hover:shadow-xl cursor-pointer hover:border-zinc-700/50;
+  }
+
+  .loader {
+    width: 45px;
+    aspect-ratio: 0.75;
+    --c: no-repeat linear-gradient(theme(--color-stone-800) 0 0);
+    background: var(--c) 0% 50%, var(--c) 50% 50%, var(--c) 100% 50%;
+    background-size: 20% 50%;
+    animation: loading 1s infinite linear;
+  }
+
+  @keyframes loading {
+    20% {
+      background-position: 0% 0%, 50% 50%, 100% 50%;
+    }
+    40% {
+      background-position: 0% 100%, 50% 0%, 100% 50%;
+    }
+    60% {
+      background-position: 0% 50%, 50% 100%, 100% 0%;
+    }
+    80% {
+      background-position: 0% 50%, 50% 50%, 100% 100%;
+    }
+  }
+}
